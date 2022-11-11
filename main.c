@@ -1,13 +1,14 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <windows.h>
 
 void PrintCLR(int clr);
-void memAlloc(int*** Arr, int N, int M); // Прототип Функції організації виділення блоку пам'яті для матриці
-void printMatrix(int** matr, int countRow, int countColumn); // Прототип Функції виведення матриці на екран
-void transpose(int*** matr, int countRow, int countColumn); // Прототип Функції транспонування матриці
-int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int countColumn1, int countColumn2);// Прототип Функції множення матриць
+void memAlloc(int*** Arr, int N, int M); // ГЏГ°Г®ГІГ®ГІГЁГЇ Г”ГіГ­ГЄГ¶ВіВї Г®Г°ГЈГ Г­ВіГ§Г Г¶ВіВї ГўГЁГ¤ВіГ«ГҐГ­Г­Гї ГЎГ«Г®ГЄГі ГЇГ Г¬'ГїГІВі Г¤Г«Гї Г¬Г ГІГ°ГЁГ¶Ві
+void printMatrix(int** matr, int countRow, int countColumn); // ГЏГ°Г®ГІГ®ГІГЁГЇ Г”ГіГ­ГЄГ¶ВіВї ГўГЁГўГҐГ¤ГҐГ­Г­Гї Г¬Г ГІГ°ГЁГ¶Ві Г­Г  ГҐГЄГ°Г Г­
+void transpose(int*** matr, int countRow, int countColumn); // ГЏГ°Г®ГІГ®ГІГЁГЇ Г”ГіГ­ГЄГ¶ВіВї ГІГ°Г Г­Г±ГЇГ®Г­ГіГўГ Г­Г­Гї Г¬Г ГІГ°ГЁГ¶Ві
+int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int countColumn1, int countColumn2);// ГЏГ°Г®ГІГ®ГІГЁГЇ Г”ГіГ­ГЄГ¶ВіВї Г¬Г­Г®Г¦ГҐГ­Г­Гї Г¬Г ГІГ°ГЁГ¶Гј
 void Tabulation(int value);
 
 
@@ -18,18 +19,18 @@ int main() {
 
   SetConsoleOutputCP(1251);
   SetConsoleCP(1251);
-  //===================================== скануємо розмір матриці ===================================== //
+  //===================================== Г±ГЄГ Г­ГіВєГ¬Г® Г°Г®Г§Г¬ВіГ° Г¬Г ГІГ°ГЁГ¶Ві ===================================== //
   ScanSizeOffMatrix(&Na, &Nb, &Mb);
-  //===================================== виділяєм пам'ять під матриці ===================================== //
+  //===================================== ГўГЁГ¤ВіГ«ГїВєГ¬ ГЇГ Г¬'ГїГІГј ГЇВіГ¤ Г¬Г ГІГ°ГЁГ¶Ві ===================================== //
   int** A = NULL;
   memAlloc(&A, Na, Na);
 
   int** B = NULL;
   memAlloc(&B, Nb, Mb);
-  //===================================== чим будем заповнювати матриці ===================================== //
+  //===================================== Г·ГЁГ¬ ГЎГіГ¤ГҐГ¬ Г§Г ГЇГ®ГўГ­ГѕГўГ ГІГЁ Г¬Г ГІГ°ГЁГ¶Ві ===================================== //
   int variant;
   ScanContntMatrix(&variant);
-  //===================================== заповнення матриць ===================================== //
+  //===================================== Г§Г ГЇГ®ГўГ­ГҐГ­Г­Гї Г¬Г ГІГ°ГЁГ¶Гј ===================================== //
   switch (variant) {
     case 1:
       ScanVallOffMatrix(1, A, Na, Na);
@@ -80,7 +81,7 @@ int main() {
       }
       break;
   }
-  //===================================== вивід контенту матриць ===================================== //
+  //===================================== ГўГЁГўВіГ¤ ГЄГ®Г­ГІГҐГ­ГІГі Г¬Г ГІГ°ГЁГ¶Гј ===================================== //
   PrintMatrixContent(1, A, Na, Na);
 
   PrintMatrixContent(2, B, Nb, Mb);
@@ -89,11 +90,11 @@ int main() {
 
   int loop = 1;
   do {
-    printf("Choose variant:\n 1. Знайти мінімальне значення нижче головної діагоналі і максимальне значення матриці");
-    printf("\n 2. Транспортування матриці B");
-    printf("\n 3. Множення матриць A*B");
-    printf("\n 4. Розташувати всі  елементи матриці у порядку зростання матриці A");
-    printf("\n 5. Виведення на екран суму елементів рядків матриці А та стовпців матриці Б\n");
+    printf("Choose variant:\n 1. Г‡Г­Г Г©ГІГЁ Г¬ВіГ­ВіГ¬Г Г«ГјГ­ГҐ Г§Г­Г Г·ГҐГ­Г­Гї Г­ГЁГ¦Г·ГҐ ГЈГ®Г«Г®ГўГ­Г®Вї Г¤ВіГ ГЈГ®Г­Г Г«Ві Ві Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­ГҐ Г§Г­Г Г·ГҐГ­Г­Гї Г¬Г ГІГ°ГЁГ¶Ві");
+    printf("\n 2. Г’Г°Г Г­Г±ГЇГ®Г°ГІГіГўГ Г­Г­Гї Г¬Г ГІГ°ГЁГ¶Ві B");
+    printf("\n 3. ГЊГ­Г®Г¦ГҐГ­Г­Гї Г¬Г ГІГ°ГЁГ¶Гј A*B");
+    printf("\n 4. ГђГ®Г§ГІГ ГёГіГўГ ГІГЁ ГўГ±Ві  ГҐГ«ГҐГ¬ГҐГ­ГІГЁ Г¬Г ГІГ°ГЁГ¶Ві Гі ГЇГ®Г°ГїГ¤ГЄГі Г§Г°Г®Г±ГІГ Г­Г­Гї Г¬Г ГІГ°ГЁГ¶Ві A");
+    printf("\n 5. Г‚ГЁГўГҐГ¤ГҐГ­Г­Гї Г­Г  ГҐГЄГ°Г Г­ Г±ГіГ¬Гі ГҐГ«ГҐГ¬ГҐГ­ГІВіГў Г°ГїГ¤ГЄВіГў Г¬Г ГІГ°ГЁГ¶Ві ГЂ ГІГ  Г±ГІГ®ГўГЇГ¶ВіГў Г¬Г ГІГ°ГЁГ¶Ві ГЃ\n");
 
     printf("\n\n");
     scanf("%d", &variant);
@@ -105,12 +106,12 @@ int main() {
       for (int i = 0; i < Na; i++) {
         for (int j = 0; j < Na; j++) {
           if (Amax < A[i][j]) Amax = A[i][j];
-          if (j < i && Amin > A[i][j]) Amin = A[i][j]; //j < i - нижче головної діагоналі
+          if (j < i && Amin > A[i][j]) Amin = A[i][j]; //j < i - Г­ГЁГ¦Г·ГҐ ГЈГ®Г«Г®ГўГ­Г®Вї Г¤ВіГ ГЈГ®Г­Г Г«Ві
 
         }
       }
-      printf("A MAX: %d\n", Amax); //максимальний елемент матриці А
-      printf("A MIN under diagonal: %d\n", Amin); //мінімальний з елементів, що знаходяться нижче головної діагоналі матриці А
+      printf("A MAX: %d\n", Amax); //Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­ГЁГ© ГҐГ«ГҐГ¬ГҐГ­ГІ Г¬Г ГІГ°ГЁГ¶Ві ГЂ
+      printf("A MIN under diagonal: %d\n", Amin); //Г¬ВіГ­ВіГ¬Г Г«ГјГ­ГЁГ© Г§ ГҐГ«ГҐГ¬ГҐГ­ГІВіГў, Г№Г® Г§Г­Г ГµГ®Г¤ГїГІГјГ±Гї Г­ГЁГ¦Г·ГҐ ГЈГ®Г«Г®ГўГ­Г®Вї Г¤ВіГ ГЈГ®Г­Г Г«Ві Г¬Г ГІГ°ГЁГ¶Ві ГЂ
     }
 
     if (variant == 2) {
@@ -142,12 +143,12 @@ int main() {
         for (int j = 0; j < Na; j++) {
           for (unsigned long i = 0; i < Na * Na; i++) {
             if (DropList == 0) {
-              if (TOP_V[i] < A[i][j]) { // перевірка на менше значення
+              if (TOP_V[i] < A[i][j]) { // ГЇГҐГ°ГҐГўВіГ°ГЄГ  Г­Г  Г¬ГҐГ­ГёГҐ Г§Г­Г Г·ГҐГ­Г­Гї
                 DropMark = i; //
                 DropList = 1;
               }
-            } else { // здвиг всього массиву
-              if (TOP_V[NB - i] < A[i][j]) { // без цьої фігні будуть баги
+            } else { // Г§Г¤ГўГЁГЈ ГўГ±ГјГ®ГЈГ® Г¬Г Г±Г±ГЁГўГі
+              if (TOP_V[NB - i] < A[i][j]) { // ГЎГҐГ§ Г¶ГјГ®Вї ГґВіГЈГ­Ві ГЎГіГ¤ГіГІГј ГЎГ ГЈГЁ
                 TOP_V[NB - i] = (double)TOP_V[(NB - 1) - i];
               }
             }
@@ -183,7 +184,7 @@ int main() {
     }
 
 
-    printf("\n \n \n Вибрати іншу дію ?\n 1. Так\n 2.Ні\n");
+    printf("\n \n \n Г‚ГЁГЎГ°Г ГІГЁ ВіГ­ГёГі Г¤ВіГѕ ?\n 1. Г’Г ГЄ\n 2.ГЌВі\n");
   } while (scanf("%d", &loop) && loop == 1);
 
 
@@ -227,13 +228,13 @@ void PrintCLR(int clr) {
   */
 }
 void memAlloc(int*** Arr, int N, int M) {
-  *Arr = (int**)calloc(N, sizeof(int*)); //!Виділення пам'яті під покажчики на рядки.  Через void * calloc (ЧислоЕлементів, РазмірЕлементаВБайтах);
+  *Arr = (int**)calloc(N, sizeof(int*)); //!Г‚ГЁГ¤ВіГ«ГҐГ­Г­Гї ГЇГ Г¬'ГїГІВі ГЇВіГ¤ ГЇГ®ГЄГ Г¦Г·ГЁГЄГЁ Г­Г  Г°ГїГ¤ГЄГЁ.  Г—ГҐГ°ГҐГ§ void * calloc (Г—ГЁГ±Г«Г®Г…Г«ГҐГ¬ГҐГ­ГІВіГў, ГђГ Г§Г¬ВіГ°Г…Г«ГҐГ¬ГҐГ­ГІГ Г‚ГЃГ Г©ГІГ Гµ);
   if (*Arr == NULL) {
     printf("Error");
     exit(0);
   }
   for (int i = 0; i < N; i++) {
-    (*Arr)[i] = (int*)calloc(M, sizeof(int)); //!Виділення пам'яті під зберігання рядків
+    (*Arr)[i] = (int*)calloc(M, sizeof(int)); //!Г‚ГЁГ¤ВіГ«ГҐГ­Г­Гї ГЇГ Г¬'ГїГІВі ГЇВіГ¤ Г§ГЎГҐГ°ВіГЈГ Г­Г­Гї Г°ГїГ¤ГЄВіГў
     if ((*Arr)[i] == NULL) {
       printf("Error");
       exit(0);
@@ -245,17 +246,17 @@ void ScanSizeOffMatrix(int *Na, int *Nb, int *Mb) {
   system("cls");
 
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14 | 14);
-  printf("\nВведіть розмір матриць:   \n"); -
+  printf("\nГ‚ГўГҐГ¤ВіГІГј Г°Г®Г§Г¬ВіГ° Г¬Г ГІГ°ГЁГ¶Гј:   \n"); -
 
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11 | 11);
 
-  printf("\n   Кількість рядків-стовбців матриці А: ");
+  printf("\n   ГЉВіГ«ГјГЄВіГ±ГІГј Г°ГїГ¤ГЄВіГў-Г±ГІГ®ГўГЎГ¶ВіГў Г¬Г ГІГ°ГЁГ¶Ві ГЂ: ");
   scanf("%d", Na);
 
-  printf("\n   Кількість рядків матриці B: ");
+  printf("\n   ГЉВіГ«ГјГЄВіГ±ГІГј Г°ГїГ¤ГЄВіГў Г¬Г ГІГ°ГЁГ¶Ві B: ");
   scanf("%d", Nb);
 
-  printf("\n   Кількість стовбців матриці B: ");
+  printf("\n   ГЉВіГ«ГјГЄВіГ±ГІГј Г±ГІГ®ГўГЎГ¶ВіГў Г¬Г ГІГ°ГЁГ¶Ві B: ");
   scanf("%d", Mb);
 
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | 0);
@@ -270,22 +271,22 @@ void ScanContntMatrix(int *variant) {
     system("cls");
 
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | 0);
-    printf("\n Використовуйте стрілки /\ і \/ на клавіатурі для переміщення по пунктам і Enter для вибиру варіанта \n\n");
+    printf("\n Г‚ГЁГЄГ®Г°ГЁГ±ГІГ®ГўГіГ©ГІГҐ Г±ГІГ°ВіГ«ГЄГЁ /\ Ві \/ Г­Г  ГЄГ«Г ГўВіГ ГІГіГ°Ві Г¤Г«Гї ГЇГҐГ°ГҐГ¬ВіГ№ГҐГ­Г­Гї ГЇГ® ГЇГіГ­ГЄГІГ Г¬ Ві Enter Г¤Г«Гї ГўГЁГЎГЁГ°Гі ГўГ Г°ВіГ Г­ГІГ  \n\n");
 
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14 | 14);
-    printf("\n   Оберіть варіант наповнення матриць інформацією:  ");
+    printf("\n   ГЋГЎГҐГ°ВіГІГј ГўГ Г°ВіГ Г­ГІ Г­Г ГЇГ®ГўГ­ГҐГ­Г­Гї Г¬Г ГІГ°ГЁГ¶Гј ВіГ­ГґГ®Г°Г¬Г Г¶ВіВєГѕ:  ");
 
     X_cursor == 0 ? PrintCLR(1) : PrintCLR(0);
-    printf("\n 1. Ввести значення всіх комірок самостійно ");
+    printf("\n 1. Г‚ГўГҐГ±ГІГЁ Г§Г­Г Г·ГҐГ­Г­Гї ГўГ±ВіГµ ГЄГ®Г¬ВіГ°Г®ГЄ Г±Г Г¬Г®Г±ГІВіГ©Г­Г® ");
 
     X_cursor == 1 ? PrintCLR(1) : PrintCLR(0);
-    printf("\n 2. Автоматично згеренерувати за допомогою random() ");
+    printf("\n 2. ГЂГўГІГ®Г¬Г ГІГЁГ·Г­Г® Г§ГЈГҐГ°ГҐГ­ГҐГ°ГіГўГ ГІГЁ Г§Г  Г¤Г®ГЇГ®Г¬Г®ГЈГ®Гѕ random() ");
 
     X_cursor == 2 ? PrintCLR(1) : PrintCLR(0);
-    printf("\n 3. Формування у відповідності до математичного виразу x + 2");
+    printf("\n 3. Г”Г®Г°Г¬ГіГўГ Г­Г­Гї Гі ГўВіГ¤ГЇГ®ГўВіГ¤Г­Г®Г±ГІВі Г¤Г® Г¬Г ГІГҐГ¬Г ГІГЁГ·Г­Г®ГЈГ® ГўГЁГ°Г Г§Гі x + 2");
 
     X_cursor == 3 ? PrintCLR(1) : PrintCLR(0);
-    printf("\n 4. На основі значення індексу елементу");
+    printf("\n 4. ГЌГ  Г®Г±Г­Г®ГўВі Г§Г­Г Г·ГҐГ­Г­Гї ВіГ­Г¤ГҐГЄГ±Гі ГҐГ«ГҐГ¬ГҐГ­ГІГі");
 
     printf("\n\n\n\n\n");
 
@@ -326,9 +327,9 @@ void ScanVallOffMatrix(int MbMatrix, int** matr, int countRow, int countColumn) 
 
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14 | 14);
     if (MbMatrix == 1) {
-      printf("\nЗаповніть матрицю A:  \n\n");
+      printf("\nГ‡Г ГЇГ®ГўГ­ВіГІГј Г¬Г ГІГ°ГЁГ¶Гѕ A:  \n\n");
     } else {
-      printf("\nЗаповніть матрицю B:  \n\n");
+      printf("\nГ‡Г ГЇГ®ГўГ­ВіГІГј Г¬Г ГІГ°ГЁГ¶Гѕ B:  \n\n");
     }
     for (int i = 0; i < countRow; i++) {
       for (int j = 0; j < countColumn; j++) {
@@ -343,7 +344,7 @@ void ScanVallOffMatrix(int MbMatrix, int** matr, int countRow, int countColumn) 
       printf("\n");
     }
     int getch_vall = getch();
-    switch (getch_vall) { // /\- 72,\/- 80,<- 75,>-77, 13 - enter,1 - 49, 2 - 50; стерти - 8
+    switch (getch_vall) { // /\- 72,\/- 80,<- 75,>-77, 13 - enter,1 - 49, 2 - 50; Г±ГІГҐГ°ГІГЁ - 8
       case 72:
         if (Y_Cursor > 0) {
           Y_Cursor --;
@@ -407,16 +408,16 @@ int discharge(int Value, int Discharge) {
 void PrintMatrixContent(int MbMatrix, int** matr, int countRow, int countColumn) {
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14 | 14);
   if (MbMatrix == 1) {
-    printf("\n Матриця A:  \n");
+    printf("\n ГЊГ ГІГ°ГЁГ¶Гї A:  \n");
   }
   if (MbMatrix == 2) {
-    printf("\n Матриця B:  \n");
+    printf("\n ГЊГ ГІГ°ГЁГ¶Гї B:  \n");
   }
   if (MbMatrix == 3) {
-    printf("\n Транспортування матриці B:  \n");
+    printf("\n Г’Г°Г Г­Г±ГЇГ®Г°ГІГіГўГ Г­Г­Гї Г¬Г ГІГ°ГЁГ¶Ві B:  \n");
   }
   if (MbMatrix == 4) {
-    printf("\n Матриця AB:  \n");
+    printf("\n ГЊГ ГІГ°ГЁГ¶Гї AB:  \n");
   }
 
   PrintCLR(0);
@@ -447,7 +448,7 @@ void transpose(int*** matr, int countRow, int countColumn) {
   *matr = (int **)calloc(countColumn, sizeof(int*));
   for (int i = 0; i < countColumn; i++)*matr[i] = (int *)calloc(countRow, sizeof(int));
 
-  printf("\n\n Транспонована матриця B[%d][%d]:\n ", countColumn, countRow);
+  printf("\n\n Г’Г°Г Г­Г±ГЇГ®Г­Г®ГўГ Г­Г  Г¬Г ГІГ°ГЁГ¶Гї B[%d][%d]:\n ", countColumn, countRow);
   for (int i = 0; i < countColumn; i++) {
     printf("\n ");
     for (int j = 0; j < countRow; j++) {
