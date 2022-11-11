@@ -1,4 +1,5 @@
 # Lab4.2
+```ruby
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -483,3 +484,4 @@ int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int coun
     return tmp;
   }
 }
+```
