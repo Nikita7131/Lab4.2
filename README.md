@@ -6,12 +6,12 @@
 #include <windows.h>
 
 void PrintCLR(int clr);
-void memAlloc(int*** Arr, int N, int M); // Прототип Функції організації виділення блоку пам'яті для матриці
-void printMatrix(int** matr, int countRow, int countColumn); // Прототип Функції виведення матриці на екран
-void transpose(int*** matr, int countRow, int countColumn); // Прототип Функції транспонування матриці
-int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int countColumn1, int countColumn2);// Прототип Функції множення матриць
+void memAlloc(int*** Arr, int N, int M);
+void transpose(int*** matr, int countRow, int countColumn);
+int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int countColumn1, int countColumn2);
+void ScanVallOffMatrix(int MbMatrix, int** matr, int countRow, int countColumn);
 void Tabulation(int value);
-
+int discharge(int Value, int Discharge);
 
 int main() {
 
@@ -242,7 +242,6 @@ void memAlloc(int*** Arr, int N, int M) {
     }
   }
 }
-
 void ScanSizeOffMatrix(int *Na, int *Nb, int *Mb) {
   system("cls");
 
@@ -313,7 +312,6 @@ void ScanContntMatrix(int *variant) {
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | 0);
   system("cls");
 }
-
 void ScanVallOffMatrix(int MbMatrix, int** matr, int countRow, int countColumn) {
   int Loop = 1;
   int X_Cursor = 0;
@@ -405,7 +403,6 @@ void Tabulation(int value) {
 int discharge(int Value, int Discharge) {
   return ((Value % (Discharge * 10)) / Discharge);
 }
-
 void PrintMatrixContent(int MbMatrix, int** matr, int countRow, int countColumn) {
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14 | 14);
   if (MbMatrix == 1) {
@@ -484,4 +481,5 @@ int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int coun
     return tmp;
   }
 }
+
 ```
