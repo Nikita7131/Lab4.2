@@ -1,4 +1,6 @@
 # Lab4.2
+[![Watch the video](https://img.youtube.com/vi/23iQIt_A1iU/hqdefault.jpg)](https://youtu.be/23iQIt_A1iU)
+
 ```ruby
 #include <stdio.h>
 #include <stdlib.h>
