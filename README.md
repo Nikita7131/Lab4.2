@@ -1,4 +1,5 @@
 # Lab4.2
+відео роботи:
 [![Watch the video](https://img.youtube.com/vi/23iQIt_A1iU/hqdefault.jpg)](https://youtu.be/23iQIt_A1iU)
 
 ```ruby
