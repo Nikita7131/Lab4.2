@@ -229,13 +229,13 @@ void PrintCLR(int clr) {
   */
 }
 void memAlloc(int*** Arr, int N, int M) {
-  *Arr = (int**)calloc(N, sizeof(int*)); //!Виділення пам'яті під покажчики на рядки.  Через void * calloc (ЧислоЕлементів, РазмірЕлементаВБайтах);
+  *Arr = (int**)calloc(N, sizeof(int*)); 
   if (*Arr == NULL) {
     printf("Error");
     exit(0);
   }
   for (int i = 0; i < N; i++) {
-    (*Arr)[i] = (int*)calloc(M, sizeof(int)); //!Виділення пам'яті під зберігання рядків
+    (*Arr)[i] = (int*)calloc(M, sizeof(int));
     if ((*Arr)[i] == NULL) {
       printf("Error");
       exit(0);
