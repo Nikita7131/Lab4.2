@@ -15,6 +15,7 @@ int** MatrixMul(int** matr1, int** matr2, int countRow1, int countRow2, int coun
 void ScanVallOffMatrix(int MbMatrix, int** matr, int countRow, int countColumn);
 void Tabulation(int value);
 int discharge(int Value, int Discharge);
+int ScanContntMatrix();
 
 int main() {
 
@@ -32,8 +33,7 @@ int main() {
   int** B = NULL;
   memAlloc(&B, Nb, Mb);
   //===================================== чим будем заповнювати матриці ===================================== //
-  int variant;
-  ScanContntMatrix(&variant);
+  int variant = ScanContntMatrix();
   //===================================== заповнення матриць ===================================== //
   switch (variant) {
     case 1:
@@ -266,7 +266,7 @@ void ScanSizeOffMatrix(int *Na, int *Nb, int *Mb) {
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | 0);
   system("cls");
 }
-void ScanContntMatrix(int *variant) {
+int ScanContntMatrix() {
   int X_cursor;
   int Loop = 1;
   while (Loop) {
@@ -307,7 +307,6 @@ void ScanContntMatrix(int *variant) {
         break;
       case 13:
       case 77:
-        *variant = X_cursor + 1;
         Loop = 0;
         break;
     }
@@ -315,6 +314,7 @@ void ScanContntMatrix(int *variant) {
 
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | 0);
   system("cls");
+  return X_cursor + 1;
 }
 void ScanVallOffMatrix(int MbMatrix, int** matr, int countRow, int countColumn) {
   int Loop = 1;
